@@ -51,13 +51,13 @@ document.body.innerText = mostraIdade(user); // 27
 
 // Rest Operator
 
-const {name: userName, ...restProps} = user;
+const {name: userFullName, ...restProps} = user;
 ''
 document.body.innerText = JSON.stringify(restProps); // '{"idade":"27","address":{"street":"Rua 1","number":"123"}}' // retorna um objeto com as propriedades restantes
 
 // Rest Operator em Arrays
 
-const array = [1,2,3,4,5, 6, 7, 8, 9, 10];	
+const array = [1,2,3,4,5,6,7,8,9,10];	
 
 const [first, second, ...restArray] = array;
 
@@ -68,7 +68,13 @@ const [firstElement, , third, ...restArray2] = array;
 document.body.innerText = JSON.stringify({restArray: restArray2}); // '{"restArray":[3,4,5,6,7,8,9,10]}' // retorna um array com os valores restantes
 
 //Short Syntax
+ const userName = 'Gustavo';
+ const userAge='27';
 
+ const newUser = {
+   userName,
+   age: userAge
+ }
 
 
 // Spread Operator
