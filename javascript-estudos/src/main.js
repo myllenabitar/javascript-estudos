@@ -115,7 +115,7 @@ array.reduce((accumulator, item) => { //retorna um valor único
 
   return accumulator + item;
 
-})  
+}, 0)  
 const todossaonumeros = array.every(item => { //retorna true se todos os elementos passarem no teste, retorna true ou false
   typeof item === 'number';
 })
