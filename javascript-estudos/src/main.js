@@ -13,9 +13,9 @@ document.body.innerText = 'sua idade é: ' + (idade ?? 'Idade não informada'); 
 
 //Objetos
 
-const user = {
+const userInfo = {
   name:'Gustavo',
-  idade:'27',
+  age:'27',
   address: {
     street: 'Rua 1',
     number:'123', 
@@ -23,21 +23,21 @@ const user = {
 
 }
 
-document.body.innerText = ('name' in user); //true  // verifica se a propriedade existe no objeto
-document.body.innerText = Object.keys(user); // ['name', 'idade', 'address'] // retorna um array com as propriedades do objeto
-document.body.innerText = Object.values(user); // ['Gustavo', '27', {street: 'Rua 1', number:'123'}] // retorna um array com os valores das propriedades do objeto
-document.body.innerText = Object.entries(user); // [['name', 'Gustavo'], ['idade', '27'], ['address', {street: 'Rua 1', number:'123'}]] // retorna um array com as propriedades e valores do objeto
-document.body.iinnerText = JSON.stringify(Object.values(user)); // '{"name":"Gustavo","idade":"27","address":{"street":"Rua 1","number":"123"}}' // converte o objeto em uma string JSON
-document.body.iinnerText = JSON.stringify(Object.entries(user)); // '[["name","Gustavo"],["idade","27"],["address",{"street":"Rua 1","number":"123"}]]' // converte o objeto em uma string JSON
+document.body.innerText = ('name' in userInfo); //true  // verifica se a propriedade existe no objeto
+document.body.innerText = Object.keys(userInfo); // ['name', 'idade', 'address'] // retorna um array com as propriedades do objeto
+document.body.innerText = Object.values(userInfo); // ['Gustavo', '27', {street: 'Rua 1', number:'123'}] // retorna um array com os valores das propriedades do objeto
+document.body.innerText = Object.entries(userInfo); // [['name', 'Gustavo'], ['idade', '27'], ['address', {street: 'Rua 1', number:'123'}]] // retorna um array com as propriedades e valores do objeto
+document.body.iinnerText = JSON.stringify(Object.values(userInfo)); // '{"name":"Gustavo","idade":"27","address":{"street":"Rua 1","number":"123"}}' // converte o objeto em uma string JSON
+document.body.iinnerText = JSON.stringify(Object.entries(userInfo)); // '[["name","Gustavo"],["idade","27"],["address",{"street":"Rua 1","number":"123"}]]' // converte o objeto em uma string JSON
 
 // Desestruturação
 
-const address = user.address
+const address = userInfo.address
 
 
 document.body.innerText = JSON.stringify(address); // '{"street":"Rua 1","number":"123"}'
 
-const {name, idade: age, address: {street, number}} = user;
+const {name, idade: age, address: {street, number}} = userInfo;
 
 document.body.innerText = JSON.stringify({name, age, street, number}); // '{"name":"Gustavo","idade":"27","street":"Rua 1","number":"123"}' // idade: age, renomeia a propriedade idade para age
 
@@ -46,18 +46,18 @@ function mostraIdade({idade}) {//pode-se passar o objeto inteiro ou desestrutura
 
 }
 
-document.body.innerText = mostraIdade(user); // 27
+document.body.innerText = mostraIdade(userInfo); // 27
 
 
 // Rest Operator
 
-const {name: userFullName, ...restProps} = user;
+const {name: userFullName, ...restProps} = userInfo;
 ''
 document.body.innerText = JSON.stringify(restProps); // '{"idade":"27","address":{"street":"Rua 1","number":"123"}}' // retorna um objeto com as propriedades restantes
 
 // Rest Operator em Arrays
 
-const array = [1,2,3,4,5,6,7,8,9,10];	
+const numbersArray = [1,2,3,4,5,6,7,8,9,10];	
 
 const [first, second, ...restArray] = array;
 
@@ -76,6 +76,50 @@ document.body.innerText = JSON.stringify({restArray: restArray2}); // '{"restArr
    age: userAge
  }
 
+ //Optional Chaining
 
-// Spread Operator
+ const user = {
+  name:'Gustavo',
+  age:'27',
+  address: {
+    street: 'Rua 1',
+    number:'123', 
+  }
+}
+
+document.body.innerText = user.address && user.address.street; // Rua 1 // verifica se a propriedade existe no objeto
+document.body.innerText = user.address?.street; // Rua 1 // verifica se a propriedade existe no objeto
+
+//Metodos de array
+
+const anotherArray = [1,2,3,4,5,6,7,8,9,10];
+
+for(const i of array) {
+  documentbody.body.innerText += i;
+}
+
+array.array.forEach(item => {
+  document.body.innerText += item;
+});
+
+array.map(item => { //transformar a array original em outra array
+  return item * 2;
+}
+)
+
+array.filter(item => { //retorna um array com os valores que passarem no teste
+  return item % 2 === 0;
+}
+)
+array.reduce((accumulator, item) => { //retorna um valor único
+
+  return accumulator + item;
+
+})  
+const todossaonumeros = array.every(item => { //retorna true se todos os elementos passarem no teste, retorna true ou false
+  typeof item === 'number';
+})
+const pelomenosumitem = array.some( item => typeof item != 'number'); // retorna se tiver ao menos um numero
+
+const par = array.find(item => item % 2 === 0);
 
