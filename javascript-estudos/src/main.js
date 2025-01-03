@@ -1,5 +1,5 @@
 
-document.body.innerText='Hello World!';
+/*document.body.innerText='Hello World!';
 
 
 //nulish coalescing operator
@@ -68,11 +68,10 @@ const [firstElement, , third, ...restArray2] = array;
 document.body.innerText = JSON.stringify({restArray: restArray2}); // '{"restArray":[3,4,5,6,7,8,9,10]}' // retorna um array com os valores restantes
 
 //Short Syntax
- const userName = 'Gustavo';
  const userAge='27';
 
  const newUser = {
-   userName,
+   userName: 'Gustavo',
    age: userAge
  }
 
@@ -87,8 +86,8 @@ document.body.innerText = JSON.stringify({restArray: restArray2}); // '{"restArr
   }
 }
 
-document.body.innerText = user.address && user.address.street; // Rua 1 // verifica se a propriedade existe no objeto
-document.body.innerText = user.address?.street; // Rua 1 // verifica se a propriedade existe no objeto
+//document.body.innerText = user.address && user.address.street; // Rua 1 // verifica se a propriedade existe no objeto
+//document.body.innerText = user.address?.street; // Rua 1 // verifica se a propriedade existe no objeto
 
 //Metodos de array
 
@@ -123,3 +122,12 @@ const pelomenosumitem = array.some( item => typeof item != 'number'); // retorna
 
 const par = array.find(item => item % 2 === 0);
 
+const soma = array.reduce((accumulator, item) => accumulator + item, 0); */
+
+
+//template literals 
+
+const userName = 'Gustavo';
+const message = `Hello ${userName}!`;	'Hello Gustavo!'
+
+document.body.innerText = message;
