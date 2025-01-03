@@ -122,7 +122,7 @@ const pelomenosumitem = array.some( item => typeof item != 'number'); // retorna
 
 const par = array.find(item => item % 2 === 0);
 
-const soma = array.reduce((accumulator, item) => accumulator + item, 0); */
+const soma = array.reduce((accumulator, item) => accumulator + item, 0); 
 
 
 //template literals 
@@ -131,3 +131,258 @@ const userName = 'Gustavo';
 const message = `Hello ${userName}!`;	'Hello Gustavo!'
 
 document.body.innerText = message;
+
+// promisses
+
+const somaDoisNumeros = (a, b) => {
+  return new Promise((_resolve, reject) => {
+    setTimeout(() => {
+      reject(a + b);
+    }, 2000);
+  });
+}
+
+somaDoisNumeros(2, 2)
+  .then(result => {
+    document.body.innerText = result;
+  })
+  .catch(error => {
+    document.body,innerText = error;
+  }); */
+
+// async await
+
+const somaDoisNumeros = (a, b) => {
+  return new Promise((_resolve, reject) => {
+    setTimeout(() => {
+      reject(a + b);
+    }, 2000);
+  });
+}
+
+const main = async () => {
+  try {
+    const result = await somaDoisNumeros(2, 2);
+    document.body.innerText = result;
+  } catch (error) {
+    document.body.innerText
+  }
+}
+
+main();
+
+// fetch
+
+const url = 'https://jsonplaceholder.typicode.com/posts';
+
+fetch(url)
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+  })
+  .catch(error => {
+    console.log(error);
+  });
+
+// fetch com async await
+
+const apiUrl = 'https://jsonplaceholder.typicode.com/posts';
+
+const fetchData1 = async () => {
+  try {
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+fetchData1();
+
+// fetch com async await e post
+
+const apiPostUrl = 'https://jsonplaceholder.typicode.com/posts';
+
+const postData = async () => {
+  try {
+    const response = await fetch(apiUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        title: 'foo',
+        body: 'bar',
+        userId: 1
+      })
+    });
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+postData();
+
+// fetch com async await e put
+
+const apiPutUrl = 'https://jsonplaceholder.typicode.com/posts/1';
+
+const putData = async () => {
+  try {
+    const response = await fetch(apiUrl, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        id: 1,
+        title: 'foo',
+        body: 'bar',
+        userId: 1
+      })
+    });
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+putData();
+
+// fetch com async await e delete
+
+const apiDeleteUrl = 'https://jsonplaceholder.typicode.com/posts/1';
+
+const deleteData = async () => {
+  try {
+    const response = await fetch(apiUrl, {
+      method: 'DELETE'
+    });
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+deleteData();
+
+// fetch com async await e headers  
+
+const apiHeadersUrl = 'https://jsonplaceholder.typicode.com/posts';
+
+const headersData = async () => {
+  try {
+    const response = await fetch(apiUrl, {
+      headers: {
+        'Content-Type': 'application.JSON',
+      }
+    });
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+headersData();
+
+// fetch com async await e headers e get
+
+const apiHeadersGetUrl = 'https://jsonplaceholder.typicode.com/posts';
+
+const headersGetData = async () => {
+  try {
+    const response = await fetch(apiUrl, {
+      headers: {
+        'Content-Type': 'application.JSON',
+      }
+    });
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+headersGetData();
+
+// fetch com async await e headers e post
+
+const apiHeadersPostUrl = 'https://jsonplaceholder.typicode.com/posts';
+
+const headersPostData = async () => {
+  try {
+    const response = await fetch(apiUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        title: 'foo',
+        body: 'bar',
+        userId: 1
+      })
+    });
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+headersPostData();
+
+// fetch com async await e headers e put
+
+const apiHeadersPutUrl = 'https://jsonplaceholder.typicode.com/posts/1';
+
+const headersPutData = async () => {
+  try {
+    const response = await fetch(apiUrl, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        id: 1,
+        title: 'foo',
+        body: 'bar',
+        userId: 1
+      })
+    });
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+headersPutData();
+
+// fetch com async await e headers e delete
+
+const apiHeadersDeleteUrl = 'https://jsonplaceholder.typicode.com/posts/1';
+
+const headersDeleteData = async () => {
+  try {
+    const response = await fetch(apiUrl, {
+      method: 'DELETE'
+    });
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+headersDeleteData();
+
+
+
+
+ 
