@@ -469,8 +469,6 @@ while (i <= 5) {
     i += 1;
 } 
 
-*/
-
 const frutas = ["maçã", "banana", "cereja"];
 const frutaPreferida = frutas.filter(fruta => fruta === "banana");
 
@@ -479,4 +477,6 @@ for (const fruta of frutas) {
         console.log(`A fruta preferida é: ${frutaPreferida}`);
     }
 }
+*/
+
 
