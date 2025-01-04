@@ -470,3 +470,13 @@ while (i <= 5) {
 } 
 
 */
+
+const frutas = ["maçã", "banana", "cereja"];
+const frutaPreferida = frutas.filter(fruta => fruta === "banana");
+
+for (const fruta of frutas) {
+    if (fruta === "banana") {
+        console.log(`A fruta preferida é: ${frutaPreferida}`);
+    }
+}
+
