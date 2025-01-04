@@ -148,7 +148,7 @@ somaDoisNumeros(2, 2)
   })
   .catch(error => {
     document.body,innerText = error;
-  }); */
+  }); 
 
 // async await
 
@@ -383,6 +383,67 @@ const headersDeleteData = async () => {
 headersDeleteData();
 
 
+function buscaLinear(lista, item) {
+  for (let i = 0; i < lista.length; i++) {
+      if (lista[i] === item) {
+          return i; // Retorna o índice onde o item foi encontrado
+      }
+  }
+  return null; // Retorna null se o item não for encontrado
+}
+
+// Exemplo de uso
+const lista = [10, 20, 30, 40, 50];
+const item = 30;
+
+const resultado = buscaLinear(lista, item);
+if (resultado !== null) {
+  console.log(`Item encontrado no índice: ${resultado}`);
+} else {
+  console.log("Item não encontrado.");
+}
 
 
+function bubbleSort(lista) {
+  const n = lista.length;
+
+  for (let i = 0; i < n; i++) {
+      for (let j = 0; j < n - i - 1; j++) {
+          if (lista[j] > lista[j + 1]) {
+              // Troca os elementos de lugar
+              let temp = lista[j];
+              lista[j] = lista[j + 1];
+              lista[j + 1] = temp;
+          }
+      }
+  }
+  return lista;
+}
+
+// Exemplo de uso
+const listaNumeros = [64, 34, 25, 12, 22, 11, 90];
+const listaOrdenada = bubbleSort(listaNumeros);
+
+console.log("Lista ordenada:", listaOrdenada);
+
+
+
+const numero = parseInt(prompt("Digite um número:"));
+
+if (numero > 0) {
+    console.log("O número é positivo.");
+} else if (numero < 0) {
+    console.log("O número é negativo.");
+} else {
+    console.log("O número é zero.");
+}
+
+*/
+const numeroPar = parseInt(prompt("Digite um Número:"));
+
+if (numeroPar % 2 === 0 ) {
+  document.body.innerText = `O número ${numeroPar} é um número par`;
+} else if (numeroPar % 2 !== 0) {
+  document.body.innerText = `O número ${numeroPar} é um número ímpar`;
+}
  
