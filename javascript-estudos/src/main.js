@@ -462,10 +462,11 @@ for (let i = 1; i <= 5; i++) {
   
 }
 
-*/
 let i = 1;
  const numeroAbaixo = parseInt(prompt("Digite um número:"));
 while (i <= 5) {
     document.body.innerText = `O número ${numeroAbaixo} é menor que 5`;
     i += 1;
-}
+} 
+
+*/
