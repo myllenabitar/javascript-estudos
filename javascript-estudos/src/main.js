@@ -438,7 +438,7 @@ if (numero > 0) {
     console.log("O número é zero.");
 }
 
-*/
+
 const numeroPar = parseInt(prompt("Digite um Número:"));
 
 if (numeroPar % 2 === 0 ) {
@@ -446,4 +446,26 @@ if (numeroPar % 2 === 0 ) {
 } else if (numeroPar % 2 !== 0) {
   document.body.innerText = `O número ${numeroPar} é um número ímpar`;
 }
- 
+
+
+const numeroEntre = parseInt(prompt("Digite um numero:"));
+for (let i = 1; i <= 5; i++) {
+  for(let j = 1; j <= 5; j++){
+    if (j <= 5 && j >= 1 ) {
+      document.body.innerText = `O número ${numeroEntre} está entre 1 e 5`;
+    } else (j >= 5 ); {
+      document.body.innerText = `O número ${numeroEntre} não está entre 1 e 5, ele é maior ou igual a 5`;
+    }
+  }
+  const elemento = document.createElement("p");
+  elemento.textContent = i;
+  
+}
+
+*/
+let i = 1;
+ const numeroAbaixo = parseInt(prompt("Digite um número:"));
+while (i <= 5) {
+    document.body.innerText = `O número ${numeroAbaixo} é menor que 5`;
+    i += 1;
+}
