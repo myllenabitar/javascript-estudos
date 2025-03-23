@@ -478,5 +478,68 @@ for (const fruta of frutas) {
     }
 }
 */
+const sumTwo = (list) => {
+  const sortedList = list.sort((a, b) => a - b);
+  let result = [];
+  const seen = new Set();
+
+  let p1 = 0;
+  let p2 = sortedList.length - 1;
+
+  while (p1 < p2) {
+    const sum = sortedList[p1] + sortedList[p2];
+
+    if (sum === 0) {
+      const key = `${sortedList[p1]}${sortedList[p2]}`;
+      if (!seen.has(key)) {
+        result.push([sortedList[p1], sortedList[p2]]);
+        seen.add(key);
+      }
+      p1++;
+    } else if (sum > 0) {
+      p2--;
+    } else {
+      p1++;
+    }
+  }
+
+  return result;
+};
+
+
+
+const sumThree = (list) => {
+  if (list.length < 3) {
+    return [];
+  }
+
+  let result = [];
+  const seen = new Set();
+  const sortedList = list.sort((a, b) => a - b);
+
+    for (let i = 0; i < list.length; i++) {
+        for (let j = i + 1; j < list.length; j++) {
+        for (let k = j + 1; k < list.length; k++) {
+            let sum = list[i] + list[j] + list[k];
+
+            if(sum !== 0) {
+                continue
+            }
+
+            let triple = [list[i], list[j], list[k]].sort((a,b) => a - b)
+            let key = triple.join(',')
+
+            if(seen.has(key)) {
+                continue
+            }
+
+            result.push(triple)
+            seen.add(key)
+        }
+        }
+    }
+
+    return result;
+};
 
 
