@@ -478,21 +478,24 @@ for (const fruta of frutas) {
     }
 }
 */
+
+
 const sumTwo = (list) => {
   const sortedList = list.sort((a, b) => a - b);
   let result = [];
   const seen = new Set();
 
   let p1 = 0;
-  let p2 = sortedList.length - 1;
+  let p2 = 1;
+  let p3 = sortedList.length - 1;
 
   while (p1 < p2) {
-    const sum = sortedList[p1] + sortedList[p2];
+    const sum = sortedList[p1] + sortedList[p2] + sortedList[p3];
 
     if (sum === 0) {
-      const key = `${sortedList[p1]}${sortedList[p2]}`;
+      const key = `${sortedList[p1]}${sortedList[p2]}${sortedList[p3]}`;
       if (!seen.has(key)) {
-        result.push([sortedList[p1], sortedList[p2]]);
+        result.push([sortedList[p1], sortedList[p2], sortedList[p3]]);
         seen.add(key);
       }
       p1++;
@@ -505,8 +508,6 @@ const sumTwo = (list) => {
 
   return result;
 };
-
-
 
 const sumThree = (list) => {
   if (list.length < 3) {
